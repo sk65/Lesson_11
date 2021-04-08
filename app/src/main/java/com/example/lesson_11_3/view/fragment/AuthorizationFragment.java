@@ -1,5 +1,6 @@
 package com.example.lesson_11_3.view.fragment;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,7 @@ public class AuthorizationFragment extends Fragment {
                         } else if (!user.getPassword().equals(passwordInput)) {
                             Toast.makeText(getActivity(), getContext().getString(R.string.wrong_password_explanations), Toast.LENGTH_SHORT).show();
                         } else {
+                            savedStateViewModel.setImgUriLiveData(Uri.parse(user.getImgUri()));
                             savedStateViewModel.setUserEmailLiveData(emailInput);
                             savedStateViewModel.setIsAuth(true);
                             navController.navigate(R.id.action_authorizationFragment_to_accountFragment);

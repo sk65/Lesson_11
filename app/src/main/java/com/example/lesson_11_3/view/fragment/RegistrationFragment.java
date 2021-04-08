@@ -92,8 +92,10 @@ public class RegistrationFragment extends Fragment {
         });
        /* savedStateViewModel.getIsAuthLiveData().observe(getViewLifecycleOwner(), isAuth -> {
             if (isAuth) {*/
-        savedStateViewModel.getImgUriLiveData().observe(getViewLifecycleOwner(), uri ->
-                Glide.with(requireActivity()).load(uri).into(binding.imvRegFragmentAva)
+        savedStateViewModel.getImgUriLiveData().observe(getViewLifecycleOwner(), uri -> {
+                    Log.i("dev", "uri " + uri.toString());
+                    Glide.with(requireActivity()).load(uri).into(binding.imvRegFragmentAva);
+                }
         );
         /*    }
         });*/
